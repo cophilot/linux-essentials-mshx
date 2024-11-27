@@ -1,0 +1,23 @@
+#!/bin/bash
+#??Search for an msh script
+#&&msh-inception
+
+function print_help() {
+
+    echo "Search for an msh script using grep"
+    echo "Usage: msh-search <pattern>"
+    exit 0
+}
+
+if [ $# -ne 1 ]; then
+
+    print_help
+    exit 1
+fi
+
+if [ $1 == "-h" ] || [ $1 == "--help" ]; then
+    print_help
+    exit 0
+fi
+
+msh ls | grep $1
